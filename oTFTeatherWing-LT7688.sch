@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.0">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1742,10 +1742,10 @@
 <part name="U$8" library="microbuilder" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="R6" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
-<part name="R7" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
-<part name="R10" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
-<part name="R11" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
-<part name="R14" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
+<part name="R7" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="22R"/>
+<part name="R10" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="22R"/>
+<part name="R11" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="22R"/>
+<part name="R14" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="22R"/>
 <part name="U$9" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$10" library="microbuilder" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -1757,9 +1757,9 @@
 <part name="C16" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="1uF"/>
 <part name="C1" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="1uF"/>
 <part name="C3" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="1uF"/>
-<part name="C2" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="1uF"/>
-<part name="C4" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="1uF"/>
-<part name="C5" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="1uF"/>
+<part name="C2" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="0.1uF"/>
+<part name="C4" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="0.1uF"/>
+<part name="C5" library="microbuilder" deviceset="CAP_CERAMIC" device="0603_NO" value="0.1uF"/>
 <part name="+3V2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -1782,6 +1782,7 @@
 <part name="R5" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
 <part name="+3V15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="R2" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="1M"/>
 </parts>
 <sheets>
 <sheet>
@@ -1970,6 +1971,10 @@
 </instance>
 <instance part="+3V16" gate="G$1" x="22.86" y="53.34" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="25.4" y="48.26" size="1.778" layer="96" rot="MR90"/>
+</instance>
+<instance part="R2" gate="G$1" x="162.56" y="203.2" smashed="yes" rot="R90">
+<attribute name="NAME" x="160.02" y="203.2" size="1.27" layer="95" font="vector" rot="R90" align="center"/>
+<attribute name="VALUE" x="162.56" y="203.2" size="1.016" layer="96" font="vector" ratio="15" rot="R90" align="center"/>
 </instance>
 </instances>
 <busses>
@@ -2200,9 +2205,9 @@
 <label x="274.32" y="38.1" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="MOSI"/>
-<wire x1="27.94" y1="40.64" x2="45.72" y2="40.64" width="0.1524" layer="91"/>
-<label x="27.94" y="40.64" size="1.778" layer="95"/>
+<wire x1="27.94" y1="38.1" x2="45.72" y2="38.1" width="0.1524" layer="91"/>
+<label x="27.94" y="38.1" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="MISO"/>
 </segment>
 </net>
 <net name="QSPI_DATA[1]" class="0">
@@ -2212,9 +2217,9 @@
 <label x="269.24" y="38.1" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="MISO"/>
-<wire x1="45.72" y1="38.1" x2="27.94" y2="38.1" width="0.1524" layer="91"/>
-<label x="27.94" y="38.1" size="1.778" layer="95"/>
+<wire x1="45.72" y1="40.64" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
+<label x="27.94" y="40.64" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="MOSI"/>
 </segment>
 </net>
 <net name="QSPI_SCK" class="0">
@@ -2806,6 +2811,30 @@
 <pinref part="U1" gate="G$1" pin="WP#/IO2"/>
 <wire x1="45.72" y1="33.02" x2="27.94" y2="33.02" width="0.1524" layer="91"/>
 <label x="27.94" y="33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="LT7688_XO" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="XO"/>
+<wire x1="177.8" y1="177.8" x2="147.32" y2="177.8" width="0.1524" layer="91"/>
+<label x="147.32" y="177.8" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="162.56" y1="198.12" x2="132.08" y2="198.12" width="0.1524" layer="91"/>
+<label x="132.08" y="198.12" size="1.778" layer="95"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="LT7688_XI" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="XI"/>
+<wire x1="198.12" y1="198.12" x2="198.12" y2="220.98" width="0.1524" layer="91"/>
+<label x="198.12" y="203.2" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="132.08" y1="208.28" x2="162.56" y2="208.28" width="0.1524" layer="91"/>
+<label x="137.16" y="208.28" size="1.778" layer="95"/>
+<pinref part="R2" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
