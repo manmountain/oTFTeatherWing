@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.2">
+<eagle version="9.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1741,7 +1741,6 @@
 <part name="U$7" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$8" library="microbuilder" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="R6" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
 <part name="R7" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="22R"/>
 <part name="R10" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="22R"/>
 <part name="R11" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="22R"/>
@@ -1825,6 +1824,8 @@
 <wire x1="99.06" y1="88.9" x2="99.06" y2="0" width="0.1524" layer="94" style="shortdash"/>
 <wire x1="99.06" y1="345.44" x2="0" y2="345.44" width="0.1524" layer="94" style="shortdash"/>
 <wire x1="99.06" y1="345.44" x2="99.06" y2="401.32" width="0.1524" layer="94" style="shortdash"/>
+<text x="200.66" y="17.78" size="1.778" layer="91" rot="R90">LCD SPI</text>
+<text x="198.12" y="17.78" size="1.778" layer="91" rot="R90">LT7688</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="177.8" y="198.12" smashed="yes"/>
@@ -1851,10 +1852,6 @@
 <attribute name="VALUE" x="144.78" y="306.324" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="+3V1" gate="G$1" x="147.32" y="309.88" smashed="yes" rot="MR270"/>
-<instance part="R6" gate="G$1" x="45.72" y="287.02" smashed="yes" rot="R90">
-<attribute name="NAME" x="43.18" y="287.02" size="1.27" layer="95" font="vector" rot="R90" align="center"/>
-<attribute name="VALUE" x="45.72" y="287.02" size="1.016" layer="96" font="vector" ratio="15" rot="R90" align="center"/>
-</instance>
 <instance part="R7" gate="G$1" x="50.8" y="266.7" smashed="yes" rot="R180">
 <attribute name="NAME" x="50.8" y="264.16" size="1.27" layer="95" font="vector" rot="R180" align="center"/>
 <attribute name="VALUE" x="50.8" y="266.7" size="1.016" layer="96" font="vector" ratio="15" rot="R180" align="center"/>
@@ -2260,11 +2257,6 @@
 <pinref part="U$2" gate="G$1" pin="RST"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="RESET"/>
-<wire x1="55.88" y1="297.18" x2="30.48" y2="297.18" width="0.1524" layer="91"/>
-<label x="30.48" y="297.18" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="U$1" gate="G$1" pin="RST2#"/>
 <wire x1="218.44" y1="60.96" x2="218.44" y2="38.1" width="0.1524" layer="91"/>
 <label x="218.44" y="38.1" size="1.778" layer="95" rot="R90"/>
@@ -2323,18 +2315,6 @@
 <label x="30.48" y="149.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="LCD_CS" class="0">
-<segment>
-<pinref part="MS2" gate="G$1" pin="GPIO6"/>
-<wire x1="213.36" y1="281.94" x2="233.68" y2="281.94" width="0.1524" layer="91"/>
-<label x="220.98" y="281.94" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="CS"/>
-<wire x1="55.88" y1="271.78" x2="30.48" y2="271.78" width="0.1524" layer="91"/>
-<label x="30.48" y="271.78" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="SDA" class="0">
 <segment>
 <pinref part="MS2" gate="G$1" pin="GPIOSDA"/>
@@ -2357,45 +2337,6 @@
 <wire x1="213.36" y1="60.96" x2="213.36" y2="38.1" width="0.1524" layer="91"/>
 <label x="213.36" y="38.1" size="1.778" layer="95" rot="R90"/>
 <pinref part="U$1" gate="G$1" pin="RXD"/>
-</segment>
-</net>
-<net name="MOSI" class="0">
-<segment>
-<pinref part="MS2" gate="G$1" pin="GPIOMOSI"/>
-<wire x1="170.18" y1="284.48" x2="149.86" y2="284.48" width="0.1524" layer="91"/>
-<label x="152.4" y="284.48" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="45.72" y1="292.1" x2="30.48" y2="292.1" width="0.1524" layer="91"/>
-<label x="30.48" y="292.1" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="MISO" class="0">
-<segment>
-<pinref part="MS2" gate="G$1" pin="GPIOMISO"/>
-<wire x1="170.18" y1="281.94" x2="149.86" y2="281.94" width="0.1524" layer="91"/>
-<label x="152.4" y="281.94" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="SDA"/>
-<pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="55.88" y1="281.94" x2="45.72" y2="281.94" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="281.94" x2="30.48" y2="281.94" width="0.1524" layer="91"/>
-<junction x="45.72" y="281.94"/>
-<label x="30.48" y="281.94" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SCK" class="0">
-<segment>
-<pinref part="MS2" gate="G$1" pin="GPIOSCK"/>
-<wire x1="170.18" y1="287.02" x2="149.86" y2="287.02" width="0.1524" layer="91"/>
-<label x="152.4" y="287.02" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="SCK"/>
-<wire x1="55.88" y1="276.86" x2="30.48" y2="276.86" width="0.1524" layer="91"/>
-<label x="30.48" y="276.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -2833,8 +2774,64 @@
 </segment>
 <segment>
 <wire x1="132.08" y1="208.28" x2="162.56" y2="208.28" width="0.1524" layer="91"/>
-<label x="137.16" y="208.28" size="1.778" layer="95"/>
+<label x="132.08" y="208.28" size="1.778" layer="95"/>
 <pinref part="R2" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="LCD_SCL" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="INT02"/>
+<wire x1="198.12" y1="60.96" x2="198.12" y2="38.1" width="0.1524" layer="91"/>
+<label x="198.12" y="38.1" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="55.88" y1="276.86" x2="30.48" y2="276.86" width="0.1524" layer="91"/>
+<label x="30.48" y="276.86" size="1.778" layer="95"/>
+<pinref part="U$2" gate="G$1" pin="SCK"/>
+</segment>
+</net>
+<net name="LCD_SDO" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="INT17"/>
+<wire x1="203.2" y1="60.96" x2="203.2" y2="38.1" width="0.1524" layer="91"/>
+<label x="203.2" y="38.1" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="55.88" y1="281.94" x2="30.48" y2="281.94" width="0.1524" layer="91"/>
+<label x="30.48" y="281.94" size="1.778" layer="95"/>
+<pinref part="U$2" gate="G$1" pin="SDA"/>
+</segment>
+</net>
+<net name="LCD_CS" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="AIN7/INT07"/>
+<wire x1="243.84" y1="60.96" x2="243.84" y2="38.1" width="0.1524" layer="91"/>
+<label x="243.84" y="38.1" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="55.88" y1="271.78" x2="30.48" y2="271.78" width="0.1524" layer="91"/>
+<label x="30.48" y="271.78" size="1.778" layer="95"/>
+<pinref part="U$2" gate="G$1" pin="CS"/>
+</segment>
+</net>
+<net name="LCD_RESET" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="INT14"/>
+<wire x1="233.68" y1="60.96" x2="233.68" y2="38.1" width="0.1524" layer="91"/>
+<label x="233.68" y="38.1" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="55.88" y1="297.18" x2="30.48" y2="297.18" width="0.1524" layer="91"/>
+<label x="30.48" y="297.18" size="1.778" layer="95"/>
+<pinref part="U$2" gate="G$1" pin="RESET"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<wire x1="195.58" y1="33.02" x2="203.2" y2="33.02" width="0.1524" layer="91" style="shortdash"/>
+<wire x1="203.2" y1="33.02" x2="203.2" y2="15.24" width="0.1524" layer="91" style="shortdash"/>
+<wire x1="203.2" y1="15.24" x2="195.58" y2="15.24" width="0.1524" layer="91" style="shortdash"/>
+<wire x1="195.58" y1="15.24" x2="195.58" y2="33.02" width="0.1524" layer="91" style="shortdash"/>
 </segment>
 </net>
 </nets>
